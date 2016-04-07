@@ -1,11 +1,14 @@
-﻿// ++--++ #version 8416
-// @file <filename>
-// @date Created: <dd-mm-yy>
-// @version <0.0.0>
+﻿// ++--++ #version 7416 
+////                                                                                                                              
+// Roborescue
 //
-// @author <full name>
+// \file <filename>
+// \date Created: <dd-mm-yy>
+// \version <0.0.0>
 //
-// @section LICENSE
+// \author <full name>
+//
+// \section LICENSE
 // License: newBSD
 //
 // Copyright © 2016, HU University of Applied Sciences Utrecht.
@@ -26,4 +29,5 @@
 // HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
 // LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
 // OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+////
 // ++--++

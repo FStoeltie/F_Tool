@@ -62,7 +62,7 @@ AS       := C:/MinGW-4.8.1/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=C:\Program Files (x86)\CodeLite
-Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/FileSearcher.cpp$(ObjectSuffix) 
 
 
 
@@ -100,6 +100,14 @@ $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 
 $(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
 	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) "main.cpp"
+
+$(IntermediateDirectory)/FileSearcher.cpp$(ObjectSuffix): FileSearcher.cpp $(IntermediateDirectory)/FileSearcher.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Development/Tools/FormattingTool/F_Tool/FileSearcher.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/FileSearcher.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/FileSearcher.cpp$(DependSuffix): FileSearcher.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/FileSearcher.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/FileSearcher.cpp$(DependSuffix) -MM "FileSearcher.cpp"
+
+$(IntermediateDirectory)/FileSearcher.cpp$(PreprocessSuffix): FileSearcher.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/FileSearcher.cpp$(PreprocessSuffix) "FileSearcher.cpp"
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

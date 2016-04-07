@@ -27,6 +27,15 @@
 // OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // ++--++
 
+/**
+	ToDo, add classes to this tool and perhaps even a namespace.
+	Rewrite variables accordingly to the coding standards.
+	Link Header authors to cpp authors.
+	change all indent tabs to spaces
+	Document everything.
+	Add Linux support (but ofcourse).
+	~Drink tea.
+ */
 #include <stdio.h>
 #include <iostream>
 #include <string>
@@ -220,6 +229,7 @@ void removeTemplate(string& file)	{
 	}
 	cout << "eot is: " << eot + t_identifier.length() << endl;
 	file.erase(0, eot + t_identifier.length());
+	file.erase(0, 1);
 	cout << "Removed old template version..." << endl;
 }
 void validateTemplateVersion(string& template_content, string& file)	{
