@@ -1,5 +1,5 @@
 // ++--++ #version 8416
-// @file <test.hpp>          
+// @file <main.cpp>          
 // @date Created: <07-04-16>
 // @version <1.0>       
 // @author <Bob Dillen>           
@@ -140,7 +140,6 @@ void changeDate(string& template_content, string& file)	{
 		return;
 	}
 	while(file.at(foundDateField) < '0' || file.at(foundDateField) > '9')	{
-		cout << "file at: " << foundDateField << endl;
 		++foundDateField;
 	}
 	string dateField = "<";
@@ -165,7 +164,6 @@ void changeVersion(string& template_content, string& file)	{
 	}
 	
 	while(file.at(foundVersionTag) < '0' || file.at(foundVersionTag) > '9')	{
-		cout << "file at: " << foundVersionTag << endl;
 		++foundVersionTag;
 	}
 	string versionField = "<";
@@ -190,7 +188,6 @@ void changeAuthor(string& template_content, string& file)	{
 	} 
 	foundAuthorTag += 7;
 	while(file.at(foundAuthorTag) < 'A' || file.at(foundAuthorTag) > 'z')	{
-		cout << "file at: " << foundAuthorTag << endl;
 		++foundAuthorTag;
 	}
 	string authorName("<");
@@ -213,10 +210,15 @@ void changeAuthor(string& template_content, string& file)	{
 void removeTemplate(string& file)	{
 	string t_identifier("++--++");
 	std::size_t eot = file.find(t_identifier); // end of template
-	eot = file.find(t_identifier);
+	eot = file.find(t_identifier, eot + t_identifier.length());
 	if(eot == std::string::npos)	{
-		return ;
+		cout << "could not find second template identifier" << endl;
+		return;
 	}
+	else	{
+		cout << "found second template identifier!" << endl; 
+	}
+	cout << "eot is: " << eot + t_identifier.length() << endl;
 	file.erase(0, eot + t_identifier.length());
 	cout << "Removed old template version..." << endl;
 }
@@ -246,8 +248,11 @@ void validateTemplateVersion(string& template_content, string& file)	{
 	int template_version;
 	ss2 >> template_version;
 	
-	if(template_version > file_version)
+	cout << "template_version is: " << template_version << ", file_version is: " << file_version << endl;
+	if(template_version > file_version)	{
 		removeTemplate(file);
+	}
+		
 }
 void changeFileName(string& template_content, string fileName)	{
 	std::size_t foundFile = template_content.find("<filename>");
@@ -275,7 +280,6 @@ int main(int argc, char* argv[])
                        (std::istreambuf_iterator<char>()    ) );
 	ifs.close();
 	cout << template_content;
-	
 	
 	for (string& str : getSubDirectories("../"))	{
 		string filled_template = template_content;

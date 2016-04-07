@@ -1,4 +1,4 @@
-﻿// ++--++ #version 8416
+﻿// ++--++ #version 7416
 // @file <test.hpp>          
 // @date Created: <07-04-16>
 // @version <1.0>       
@@ -26,6 +26,6 @@
 // LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
 // OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 // ++--++
-// @version 1.0
+﻿// @version 1.0
 ﻿// @author Bob Dillen
 test in here
